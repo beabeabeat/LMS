@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:aop="http://www.springframework.org/schema/aop"
+     xmlns:tx="http://www.springframework.org/schema/tx"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!--配置数据源-->
+<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+    <property name="url" value="jdbc:sqlserver://127.0.0.1:1433;databaseName=Hibernate2"/>
+    <property name="username" value="sa"/>
+    <property name="password" value="123456789"/>
+  </bean>
+<!--配置sessionFactory-->
+  <bean id="mySessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="myDataSource"/>
+    <property name="mappingResources">
+      <list>
+      <value>/com/po/Card.hbm.xml</value>
+      <value>/com/po/Book.hbm.xml</value>
+        <value>/com/po/Borrow.hbm.xml</value>
+      </list>
+    </property>
+    <property name="hibernateProperties">
+      <value>
+        hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+        current_session_context_class=thread
+        show_sql=true
+        formart_sql=true
+      </value>
+    </property>
+  </bean>
+	
+  	
+	
+	<!-- 配置 Spring 的声明式事务 -->
+	<!-- 1. 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="mySessionFactory"></property>
+	</bean>
+
+	<!-- 2. 配置事务属性, 需要事务管理器 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*"  propagation="REQUIRES_NEW" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 3. 配置事务切点, 并把切点和事务属性关联起来 -->
+	<aop:config>
+		<aop:pointcut expression="execution(* com.service.*.*(..))" 
+			id="txPointcut"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+	</aop:config>
+	
+	<bean id="card" class="com.po.Card"></bean>
+    <bean id="book" class="com.po.Book"></bean>
+	<bean id="borrow" class="com.po.Borrow"></bean>
+	<bean id="cardDao" class="com.dao.CardDao">
+  	    <property name="sessionFactory" ref="mySessionFactory"></property>
+    </bean>	
+    <bean id="bookDao" class="com.dao.BookDao">
+  	    <property name="sessionFactory" ref="mySessionFactory"></property>
+    </bean>
+	<bean id="borrowDao" class="com.dao.BorrowDao">
+		<property name="sessionFactory" ref="mySessionFactory"></property>
+	</bean>	
+    <bean id="cardService" class="com.service.CardService">
+  	    <property name="dao" ref="cardDao"></property>
+    </bean>	
+    <bean id="bookService" class="com.service.BookService">
+  	    <property name="dao" ref="bookDao"></property>
+    </bean>
+    <bean id="borrowService" class="com.service.BorrowService">
+        <property name="bookDao" ref="bookDao"></property>
+        <property name="cardDao" ref="cardDao"></property>
+  	    <property name="borrowDao" ref="borrowDao"></property>
+  	    <property name="cardService" ref="cardService"></property>
+  	    <property name="bookService" ref="bookService"></property>
+    </bean>
+	
+	<bean id="borrowAction" class="com.action.BorrowAction" scope="prototype">
+		<property name="borrowService" ref="borrowService"></property>
+	</bean>
+	<bean id="addborrowAction" class="com.action.AddBorrowAction" scope="prototype">
+		<property name="borrowService" ref="borrowService"></property>
+	</bean>
+	
+</beans>
+
+
+
