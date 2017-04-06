@@ -1,3 +1,4 @@
+<%@page import="com.po.Employee"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -14,6 +15,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
 	</head>
 	<body>
+	
+	
 		<div class="layui-layout layui-layout-admin">
 			<div class="layui-header header header-demo">
 				<div class="layui-main">
@@ -73,7 +76,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<script type="text/javascript" src="plugins/layui/layui.js"></script>
 			<script type="text/javascript" src="datas/nav.js"></script>
 			<script src="js/index.js"></script>
-	  <%if(2 >1){ %>
+		<!-- 超级管理员 -->
+
 			<script type="text/javascript">
 			layui.config({base: 'js/'}).use(['navbar', 'tab'], function() {
 		    navbar = layui.navbar(),
@@ -95,7 +99,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        });
         });
 		</script>
-		<%} %>
+		<!-- 非超级管理员 -->
+
+
 		</div>
 	</body>
 </html>

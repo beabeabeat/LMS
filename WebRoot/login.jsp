@@ -21,12 +21,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<h1>物流管理系统</h1>
 			</header>
 			<div class="beg-login-main">
-				<form  class="layui-form" method="post"><input name="__RequestVerificationToken" type="hidden" value="fkfh8D89BFqTdrE2iiSdG_L781RSRtdWOH411poVUWhxzA5MzI8es07g6KPYQh9Log-xf84pIR2RIAEkOokZL3Ee3UKmX0Jc8bW8jOdhqo81" />
+				<form  class="layui-form" method="post" action="validateLogin.action"> <input name="__RequestVerificationToken" type="hidden"  />
 					<div class="layui-form-item">
 						<label class="beg-login-icon">
                         <i class="layui-icon">&#xe612;</i>
                     </label>
-						<input type="text" name="userName" lay-verify="userName" autocomplete="off" placeholder="这里输入登录名" class="layui-input">
+						<input type="text" name="ename" lay-verify="userName" autocomplete="off" placeholder="这里输入登录名" class="layui-input">
 					</div>
 					<div class="layui-form-item">
 						<label class="beg-login-icon">
@@ -36,9 +36,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div >
 						<div class="beg-pull-left">
-							<button class="layui-btn layui-btn-primary" onclick="javascript:window.location.href='index.html'">
+							<!--  <button class="layui-btn layui-btn-primary">
                             <i class="layui-icon"></i> 登录
-                        </button>
+                        </button>-->
+                        <input value="登陆" type="submit" class="layui-btn layui-btn-primary">
 						</div>
 						<div class="beg-clear"></div>
 					</div>

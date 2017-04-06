@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.po">
+	<class name="Employee" table="t_employee" lazy="false">
+		<id name="eid" column="eid">
+			<generator class="native"></generator>            
+        </id>	
+       <property name="ename"></property>
+       <property name="realName"></property>
+       <property name="password"></property>
+       <property name="phoneNumber"></property>
+       <property name="company"></property>
+       <property name="department"></property>    
+       <property name="roleID"></property>    
+	</class>
+</hibernate-mapping>
+
+
+
+

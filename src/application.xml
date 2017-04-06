@@ -16,7 +16,7 @@
 	<!--配置数据源-->
 <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
     <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-    <property name="url" value="jdbc:sqlserver://127.0.0.1:1433;databaseName=Hibernate2"/>
+    <property name="url" value="jdbc:sqlserver://127.0.0.1:1433;databaseName=LMS"/>
     <property name="username" value="sa"/>
     <property name="password" value="123456789"/>
   </bean>
@@ -25,9 +25,7 @@
     <property name="dataSource" ref="myDataSource"/>
     <property name="mappingResources">
       <list>
-      <value>/com/po/Card.hbm.xml</value>
-      <value>/com/po/Book.hbm.xml</value>
-        <value>/com/po/Borrow.hbm.xml</value>
+      <value>/com/po/Employee.hbm.xml</value>
       </list>
     </property>
     <property name="hibernateProperties">
@@ -62,37 +60,20 @@
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
 	</aop:config>
 	
-	<bean id="card" class="com.po.Card"></bean>
-    <bean id="book" class="com.po.Book"></bean>
-	<bean id="borrow" class="com.po.Borrow"></bean>
-	<bean id="cardDao" class="com.dao.CardDao">
+	<bean id="employee" class="com.po.Employee"></bean>
+	<bean id="employeeDao" class="com.dao.EmployeeDao">
   	    <property name="sessionFactory" ref="mySessionFactory"></property>
     </bean>	
-    <bean id="bookDao" class="com.dao.BookDao">
-  	    <property name="sessionFactory" ref="mySessionFactory"></property>
-    </bean>
-	<bean id="borrowDao" class="com.dao.BorrowDao">
-		<property name="sessionFactory" ref="mySessionFactory"></property>
-	</bean>	
-    <bean id="cardService" class="com.service.CardService">
-  	    <property name="dao" ref="cardDao"></property>
+    <bean id="employeeService" class="com.service.EmployeeService">
+  	    <property name="employeeDao" ref="employeeDao"></property>
     </bean>	
-    <bean id="bookService" class="com.service.BookService">
-  	    <property name="dao" ref="bookDao"></property>
-    </bean>
-    <bean id="borrowService" class="com.service.BorrowService">
-        <property name="bookDao" ref="bookDao"></property>
-        <property name="cardDao" ref="cardDao"></property>
-  	    <property name="borrowDao" ref="borrowDao"></property>
-  	    <property name="cardService" ref="cardService"></property>
-  	    <property name="bookService" ref="bookService"></property>
+    <bean id="validateLoginService" class="com.service.ValidateLoginService">
+  	    <property name="employeeService" ref="employeeService"></property>
     </bean>
 	
-	<bean id="borrowAction" class="com.action.BorrowAction" scope="prototype">
-		<property name="borrowService" ref="borrowService"></property>
-	</bean>
-	<bean id="addborrowAction" class="com.action.AddBorrowAction" scope="prototype">
-		<property name="borrowService" ref="borrowService"></property>
+	<bean id="validateLoginAction" class="com.action.ValidateLoginAction" scope="prototype">
+		<property name="validateLoginService" ref="validateLoginService"></property>
+		<property name="employeeService" ref="employeeService"></property>
 	</bean>
 	
 </beans>

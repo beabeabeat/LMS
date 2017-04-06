@@ -10,14 +10,10 @@
     <constant name="struts.i18n.encoding" value="utf-8"></constant>
     <constant name="struts.action.extension" value="action,do,"></constant>
 
-    <package name="default" namespace="/" extends="json-default">
-		<action name="queryBorrow" class="borrowAction" method="queryBorrow">
-			<result type="json">
-				<param name="root">list</param>
-			</result>
-		</action>
-		<action name="addBorrow" class="addborrowAction">
-			<result>success.jsp</result>
+    <package name="default" namespace="/" >
+		<action name="validateLogin" class="validateLoginAction" >
+			<result>index.jsp</result>
+			<result name="failed">failed.jsp</result>
 		</action>
        
     </package>
