@@ -10,6 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.po.Employee;
 import com.service.EmployeeService;
 import com.service.ValidateLoginService;
 
@@ -19,11 +20,10 @@ public class ValidateLoginAction extends ActionSupport{
 	private ValidateLoginService validateLoginService;
 	private EmployeeService employeeService;
 	public String validateLogin() {
-		String state=validateLoginService.validateLogin(ename, password);
-		if(state.equals("success")){
+		Employee employee=validateLoginService.validateLogin(ename, password);
+		if(employee!=null){
 			HttpSession session=ServletActionContext.getRequest().getSession();
-		      HttpServletResponse response = ServletActionContext.getResponse();
-		      session.setAttribute("employee","alex");
+		    session.setAttribute("employee",employee);
 			return "success";
 		}
 		return "failed";

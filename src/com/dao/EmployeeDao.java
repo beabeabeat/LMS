@@ -16,7 +16,7 @@ public class EmployeeDao {
 	}
 	public Employee getEmployeeByEname(String ename){
 		Session session=sessionFactory.openSession();
-		Employee employee=(Employee)session.get(Employee.class,ename);
+		Employee employee=(Employee)session.createQuery("from Employee where ename=?").setString(0,ename).list().get(0);
 		return employee;
 	}
 

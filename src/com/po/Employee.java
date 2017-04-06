@@ -8,6 +8,7 @@ public class Employee {
 	private String phoneNumber;
 	private String company;
 	private String department;
+	private int roleID;
 	public int getEid() {
 		return eid;
 	}
@@ -56,7 +57,8 @@ public class Employee {
 	public void setRoleID(int roleID) {
 		this.roleID = roleID;
 	}
-	private int roleID;
+	
+	
 
 	
 	

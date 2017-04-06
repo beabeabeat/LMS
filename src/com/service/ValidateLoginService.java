@@ -1,17 +1,19 @@
 package com.service;
 
+import com.po.Employee;
+
 public class ValidateLoginService {
 	
 	EmployeeService employeeService;
 	
-	public String validateLogin(String ename,String password) {
-		String Password=employeeService.getEmployeeByEname(ename).getPassword();
-		if(Password==password){
-			return "success";
+	public Employee validateLogin(String ename,String password) {
+		Employee employee=employeeService.getEmployeeByEname(ename);
+		String Password=employee.getPassword();
+		System.out.println(employeeService.getEmployeeByEname(ename).getRealName());
+		if(Password.equals(password)){
+			return employee;
 		}
-		else{
-			return "failed";
-		}
+		return null;
 	}
 
 	public EmployeeService getEmployeeService() {

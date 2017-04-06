@@ -10,8 +10,8 @@
     <constant name="struts.i18n.encoding" value="utf-8"></constant>
     <constant name="struts.action.extension" value="action,do,"></constant>
 
-    <package name="default" namespace="/" >
-		<action name="validateLogin" class="validateLoginAction" >
+    <package name="default" namespace="/" extends="struts-default">
+		<action name="validateLogin" class="validateLoginAction" method="validateLogin">
 			<result>index.jsp</result>
 			<result name="failed">failed.jsp</result>
 		</action>
