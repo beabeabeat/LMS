@@ -19,20 +19,9 @@ layui.config({
 	}).resize();
 
 	//设置navbar
-	navbar.set({
-		spreadOne: true,
-		elem: '#admin-navbar-side',
-		cached: true,
-		data: navs
-			/*cached:true,
-			url: 'datas/nav.json'*/
-	});
-	//渲染navbar
-	navbar.render();
+	
 	//监听点击事件
-	navbar.on('click(side)', function(data) {
-		tab.tabAdd(data.field);
-	});
+	
 
 	$('.admin-side-toggle').on('click', function() {
 		var sideWidth = $('#admin-side').width();

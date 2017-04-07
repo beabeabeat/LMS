@@ -15,8 +15,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
 	</head>
 	<body>
-	
-	
+	<% Employee employee=(Employee)session.getAttribute("employee"); 
+	   if(employee==null){
+	   response.sendRedirect("login.jsp");
+	   return;
+	}%>
 		<div class="layui-layout layui-layout-admin">
 			<div class="layui-header header header-demo">
 				<div class="layui-main">
@@ -32,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<li class="layui-nav-item">
 							<a href="javascript:;" class="admin-header-user">
 								<img src="images/0.jpg" />
-								<span>alex</span>
+								<span><%=((Employee)session.getAttribute("employee")).getEname() %></span>
 							</a>
 							<dl class="layui-nav-child">
 								<dd>
@@ -74,10 +77,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 			<script type="text/javascript" src="plugins/layui/layui.js"></script>
-			<script type="text/javascript" src="datas/nav.js"></script>
+			<script type="text/javascript" src="js/nav.js"></script>
+			<script type="text/javascript" src="js/nav_normal.js"></script>
 			<script src="js/index.js"></script>
-		<!-- 超级管理员 -->
-
+		<!-- 超级管理员  显示所有功能-->
+        <%if(employee.getEname().toString().equals("alex")){%>
 			<script type="text/javascript">
 			layui.config({base: 'js/'}).use(['navbar', 'tab'], function() {
 		    navbar = layui.navbar(),
@@ -99,9 +103,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        });
         });
 		</script>
-		<!-- 非超级管理员 -->
-
-
+		<%} else{%>
+		<!-- 非超级管理员  显示部分功能-->
+		<script type="text/javascript">
+			layui.config({base: 'js/'}).use(['navbar', 'tab'], function() {
+		    navbar = layui.navbar(),
+		    tab = layui.tab({
+			elem: '.admin-nav-card' //设置选项卡容器
+		     });
+	        //设置navbar
+	        navbar.set({
+		    spreadOne: true,
+		    elem: '#admin-navbar-side',
+		    cached: true,
+		    data: navs_normal
+	           });
+	        //渲染navbar
+	        navbar.render();
+	        //监听点击事件
+	        navbar.on('click(side)', function(data) {
+		    tab.tabAdd(data.field);
+	        });
+        });
+		</script>
+		
+		<%} %>
 		</div>
 	</body>
 </html>
