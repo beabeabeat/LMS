@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.po">
+	<class name="Company" table="t_company" lazy="false">
+		<id name="cid" column="cid">
+			<generator class="native"></generator>            
+        </id>	
+       <property name="cname"></property>
+       <property name="header"></property>
+       <property name="headerPhone"></property>
+       <property name="companyPhone"></property>
+       <property name="province"></property>
+       <property name="city"></property>    
+       <property name="county"></property>  
+       <property name="street"></property>    
+       <property name="zone"></property>      
+	</class>
+</hibernate-mapping>
+
+
+
+
