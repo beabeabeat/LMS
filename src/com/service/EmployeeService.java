@@ -2,6 +2,8 @@ package com.service;
 
 import com.dao.EmployeeDao;
 import com.po.Employee;
+import java.util.List;
+
 
 public class EmployeeService {
 	private EmployeeDao employeeDao;
@@ -10,8 +12,24 @@ public class EmployeeService {
 		return employeeDao.getEmployee(eid);
 		
 	}
+	public List<Employee> queryEmployee(String query){
+		return employeeDao.queryEmployee(query);
+	}
+	public List<Employee> queryEmployeesByID(int id){
+		return employeeDao.queryEmployeesByID(id);
+	}
+	public List<Employee> queryEmployeesByCompany(String company) {
+		return employeeDao.queryEmployeesByCompany(company);
+		
+	}
+	public List<Employee> queryEmployeesByDepartment(String department){
+		return employeeDao.queryEmployeesByDepartment(department);
+	}
 	public Employee getEmployeeByEname(String ename) {
 		return employeeDao.getEmployeeByEname(ename);
+	}
+	public List<Employee> showEmployeeList(){
+		return employeeDao.getAllEmployees();
 	}
 
 	public EmployeeDao getEmployeeDao() {

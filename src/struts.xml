@@ -14,7 +14,27 @@
 		<action name="validateLogin" class="validateLoginAction" method="validateLogin">
 			<result>index.jsp</result>
 			<result name="failed">failed.jsp</result>
-		</action>
+	    </action>
+	    <action name="logOutAction" class="logOutAction" method="logOut">
+			<result>login.jsp</result>
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="showEmployeeListAction" class="showEmployeeListAction" method="showEmployeeList">
+	        <result>showAllEmployees.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="queryEmployeesById" class="queryEmployeesAction" method="queryEmployeesById">
+	        <result>queryEmployees.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	     <action name="queryEmployeesByDepartment" class="queryEmployeesAction" method="queryEmployeesByDepartment">
+	        <result>queryEmployees.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="queryEmployeesByCompany" class="queryEmployeesAction" method="queryEmployeesByCompany">
+	        <result>queryEmployees.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
        
     </package>
 

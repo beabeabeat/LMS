@@ -1,6 +1,8 @@
 package com.po;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable{
 	private int eid;
 	private String ename;
 	private String realName;

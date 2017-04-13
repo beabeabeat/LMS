@@ -5,15 +5,15 @@ var navs = [{
 	"children": [{
 		"title": "员工管理",
 		"icon": "&#xe641;",
-		"href": "index.jsp"
+		"href": "employeesManage.jsp"
 	}, {
 		"title": "公司管理",
 		"icon": "&#xe63c;",
-		"href": "form.html"
+		"href": "companysManage.jsp"
 	}, {
 		"title": "部门管理",
 		"icon": "&#xe63c;",
-		"href": "table.html"
+		"href": "departmentsManage.jsp"
 	}, {
 		"title": "运时运费管理",
 		"icon": "&#xe609;",
@@ -73,12 +73,6 @@ var navs = [{
 {
 	"title": "系统帮助",
 	"icon": "fa-check-square-o",
-	"href": "https://www.baidu.com",
-	"spread": false
-}, 
-{
-	"title": "安全注销",
-	"icon": "fa-address-book",
 	"href": "https://www.baidu.com",
 	"spread": false
 }];

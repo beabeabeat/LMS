@@ -6,7 +6,7 @@
      xmlns:context="http://www.springframework.org/schema/context"
      xsi:schemaLocation="
      http://www.springframework.org/schema/beans
-     http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
      http://www.springframework.org/schema/context
      http://www.springframework.org/schema/context/spring-context.xsd
      http://www.springframework.org/schema/tx
@@ -26,6 +26,9 @@
     <property name="mappingResources">
       <list>
       <value>/com/po/Employee.hbm.xml</value>
+      <value>/com/po/Company.hbm.xml</value>
+      <value>/com/po/Department.hbm.xml</value>
+      <value>/com/po/Role.hbm.xml</value>
       </list>
     </property>
     <property name="hibernateProperties">
@@ -75,6 +78,16 @@
 		<property name="validateLoginService" ref="validateLoginService"></property>
 		<property name="employeeService" ref="employeeService"></property>
 	</bean>
+	<bean id="logOutAction" class="com.action.LogOutAction" scope="prototype">
+	    
+	</bean>
+	<bean id="showEmployeeListAction" class="com.action.ShowEmoloyeeListAction" scope="prototype">
+	    <property name="employeeService" ref="employeeService"></property>
+	</bean>
+	<bean id="queryEmployeesAction" class="com.action.QueryEmployeeAction" scope="prototype">
+	    <property name="employeeService" ref="employeeService"></property>
+	</bean>
+	
 	
 </beans>
 

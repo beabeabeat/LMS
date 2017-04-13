@@ -1,4 +1,5 @@
 <%@page import="com.po.Employee"%>
+<%@page errorPage="errorPage.jsp" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -45,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<a href="javascript:;"><i class="fa fa-gear" aria-hidden="true"></i>设置</a>
 								</dd>
 								<dd>
-									<a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+									<a href="logOutAction.do"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
 								</dd>
 							</dl>
 						</li>
@@ -65,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</ul>
 					<div class="layui-tab-content" style="min-height: 150px; padding: 5px 0 0 0;">
 						<div class="layui-tab-item layui-show">
-							<iframe src="main.html"></iframe>
+							<iframe src="dashboard.jsp"></iframe>
 						</div>
 					</div>
 				</div>
