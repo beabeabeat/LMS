@@ -35,6 +35,10 @@
 	        <result>queryEmployees.jsp</result>		
 			<result name="failed">failed.jsp</result>
 	    </action>
+	    <action name="addEmployeeAction" class="addEmployeeAction" method="addEmployee">
+	        <result>addEmployeeSuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
        
     </package>
 

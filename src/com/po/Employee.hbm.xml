@@ -14,7 +14,8 @@
        <property name="phoneNumber"></property>
        <property name="company"></property>
        <property name="department"></property>    
-       <property name="roleID"></property>    
+       <property name="roleID"></property>  
+       <property name="eState"></property>   
 	</class>
 </hibernate-mapping>
 

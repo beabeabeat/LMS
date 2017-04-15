@@ -1,9 +1,13 @@
-package com.po;
+package com.action;
 
-import java.io.Serializable;
+import org.apache.struts2.ServletActionContext;
 
-public class Employee implements Serializable{
-	private int eid;
+import com.opensymphony.xwork2.ActionSupport;
+import com.po.Employee;
+import com.service.EmployeeService;
+
+public class AddEmployeeAction extends ActionSupport{
+	EmployeeService employeeService;
 	private String ename;
 	private String realName;
 	private String password;
@@ -13,81 +17,87 @@ public class Employee implements Serializable{
 	private int eState; 
 	private int roleID;
 	
-	
-	public Employee() {
-		super();
-		// TODO Auto-generated constructor stub
+	public String addEmployee(){
+		eState=Integer.parseInt(ServletActionContext.getRequest().getParameter("eState").toString());
+		Employee employee=new Employee(ename, realName, password, phoneNumber, company, department, eState, roleID);
+		employeeService.addEmployee(employee);
+		return "success";
 	}
-	public Employee(String ename, String realName, String password, String phoneNumber, String company,
-			String department, int eState, int roleID) {
-		super();
-		this.ename = ename;
-		this.realName = realName;
-		this.password = password;
-		this.phoneNumber = phoneNumber;
-		this.company = company;
-		this.department = department;
-		this.eState = eState;
-		this.roleID = roleID;
-	}
-	public int getEid() {
-		return eid;
-	}
-	public void setEid(int eid) {
-		this.eid = eid;
-	}
+
+
 	public String getEname() {
 		return ename;
 	}
+
 	public void setEname(String ename) {
 		this.ename = ename;
 	}
+
 	public String getRealName() {
 		return realName;
 	}
+
 	public void setRealName(String realName) {
 		this.realName = realName;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 	public String getCompany() {
 		return company;
 	}
+
 	public void setCompany(String company) {
 		this.company = company;
 	}
+
 	public String getDepartment() {
 		return department;
 	}
+
 	public void setDepartment(String department) {
 		this.department = department;
 	}
-	public int getRoleID() {
-		return roleID;
-	}
-	public void setRoleID(int roleID) {
-		this.roleID = roleID;
-	}
+
 	public int geteState() {
 		return eState;
 	}
+
 	public void seteState(int eState) {
 		this.eState = eState;
 	}
-	
-	
+
+	public int getRoleID() {
+		return roleID;
+	}
+
+	public void setRoleID(int roleID) {
+		this.roleID = roleID;
+	}
+
+
+	public EmployeeService getEmployeeService() {
+		return employeeService;
+	}
+
+
+	public void setEmployeeService(EmployeeService employeeService) {
+		this.employeeService = employeeService;
+	}
 	
 
-	
-	
 }

@@ -87,6 +87,9 @@
 	<bean id="queryEmployeesAction" class="com.action.QueryEmployeeAction" scope="prototype">
 	    <property name="employeeService" ref="employeeService"></property>
 	</bean>
+	<bean id="addEmployeeAction" class="com.action.AddEmployeeAction" scope="prototype">
+	    <property name="employeeService" ref="employeeService"></property>
+	</bean>
 	
 	
 </beans>

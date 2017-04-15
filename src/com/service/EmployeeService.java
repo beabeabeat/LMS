@@ -12,9 +12,9 @@ public class EmployeeService {
 		return employeeDao.getEmployee(eid);
 		
 	}
-	public List<Employee> queryEmployee(String query){
-		return employeeDao.queryEmployee(query);
-	}
+    public void addEmployee(Employee employee){
+    	employeeDao.addEmployee(employee);
+    }
 	public List<Employee> queryEmployeesByID(int id){
 		return employeeDao.queryEmployeesByID(id);
 	}

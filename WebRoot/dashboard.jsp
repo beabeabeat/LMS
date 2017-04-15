@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="col-md-3 four-grid">
 						<div class="four-agileits">
 							<div class="icon">
-								<i class="glyphicon glyphicon-user"></i>
+								<i class="glyphicon glyphicon-ok-sign"></i>
 							</div>
 							<div class="four-text">
 								<h3>员工数量</h3>
@@ -142,6 +142,69 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="clearfix"></div>
 				</div>
 				
+				
+                      <div >
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="widget widget-report-table">
+                                        <header class="widget-header m-b-15">
+                                        </header>
+                                        
+                                        <div class="row m-0 md-bg-grey-100 p-l-20 p-r-20">
+                                            <div class="col-md-6 col-sm-6 col-xs-6 w3layouts-aug">
+                                                <h3>最近订单</h3>
+                                                <p>REPORT</p>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                                <h2 class="text-right c-teal f-300 m-t-20">$21,235</h2>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="widget-body p-15">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Name</th>
+                                                        <th>Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>2356</td>
+                                                        <td>dummy text </td>
+                                                        <td>6,200.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4589</td>
+                                                        <td>Lorem Ipsum</td>
+                                                        <td>6,500.00</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td>3269</td>
+                                                        <td>specimen book</td>
+                                                        <td>6,800.00</td>
+                                                    </tr>                                                    
+                                                    <tr>
+                                                        <td>5126</td>
+                                                        <td>Letraset sheets</td>
+                                                        <td>7,200.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7425</td>
+                                                        <td>PageMaker</td>
+                                                        <td>5,900.00</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					
+					
 								
 				</div>
 				

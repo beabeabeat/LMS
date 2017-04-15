@@ -17,10 +17,9 @@ public class EmployeeDao {
 		return employee;
 	}
 	
-	public List<Employee> queryEmployee(String query){
+	public void addEmployee(Employee employee){
 		Session session=sessionFactory.openSession();
-		List<Employee> list=session.createQuery("from Employee where eid =? or department=(from Department where dname=?) or company=(from Company where cname=?)").setInteger(0,Integer.parseInt(query)).setString(1,query).setString(2,query).list();
-		return list;
+		session.save(employee);
 	}
 	public List<Employee> queryEmployeesByID(int id){
 		Session session=sessionFactory.openSession();
@@ -47,6 +46,7 @@ public class EmployeeDao {
 		List<Employee> list=session.createQuery("from Employee").list();
 		return list;
 	}
+	
 
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

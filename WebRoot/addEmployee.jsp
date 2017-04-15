@@ -12,19 +12,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>添加员工</title>
     
 	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-		<meta name="renderer" content="webkit">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="format-detection" content="telephone=no">
 
-		<link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
-		<link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    
 
   </head>
   
@@ -34,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<legend>添加员工</legend>
 			</fieldset>
 
-			<form class="layui-form" action="">
+			<form class="layui-form" action="addEmployeeAction">
 				<div class="layui-form-item">
 					<label class="layui-form-label">员工姓名</label>
 					<div class="layui-input-block">
@@ -61,14 +52,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">所属公司</label>
-					<div class="layui-input-block">
-						<input type="text" name="company"  placeholder="请输入所属公司" class="layui-input">
+					<div class="layui-input-inline">
+						<select name="company">
+							<option value="">--请选择所属公司--</option>
+							<option value="1000">济南分公司</option>
+							<option value="1001">北京分公司</option>
+						</select>
+					</div>
+					<label class="layui-form-label">所属部门</label>
+					<div class="layui-input-inline">
+						<select name="department">
+							<option value="">--请选择所属部门--</option>
+							<option value="1000">收货部</option>
+							<option value="1001">票务部</option>
+							<option value="1002">配送部</option>
+							<option value="1003">财务部</option>
+							<option value="1004">业务部</option>
+							<option value="1005">维护部</option>
+							<option value="1006">行政部</option>
+						</select>
+					</div>
+					<label class="layui-form-label">所属角色</label>
+					<div class="layui-input-inline">
+						<select name="roleID">
+							<option value="">--请选择所属角色--</option>
+							<option value="1001">收货员</option>
+							<option value="1002">票务员</option>
+							<option value="1003">配送员</option>
+							<option value="1004">财务员</option>
+							<option value="1005">业务员</option>
+							<option value="1006">维护员</option>
+							<option value="1007">经理</option>
+						</select>
 					</div>
 				</div>
 				<div class="layui-form-item">
-					<label class="layui-form-label">所属部门</label>
+					<label class="layui-form-label">员工状态</label>
 					<div class="layui-input-block">
-						<input type="text" name="roleID"  placeholder="请输入所属部门" class="layui-input">
+						<input type="radio" name="eState" value="1" title="在职" checked="checked">
+						<input type="radio" name="eState" value="0" title="离职" >
+						<input type="radio" name="eState" value="2" title="休假">
 					</div>
 				</div>
 				<div class="layui-form-item layui-form-text">
@@ -85,5 +108,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</form>
 		</div>
+		<script type="text/javascript" src="plugins/layui/layui.js"></script>
+		<script>
+			layui.use(['form'], function() {
+				var form = layui.form(),
+					layer = layui.layer;
+			});
+		</script>
   </body>
 </html>
