@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="layui-header header header-demo">
 				<div class="layui-main">
 					<div class="admin-login-box">
-						<a class="logo" style="left: 0;" href="http://beginner.zhengjinfan.cn/demo/beginner_admin/">
+						<a class="logo" style="left: 0;" href="index.jsp">
 							<span style="font-size: 22px;">物流管理系统</span>
 						</a>
 						<div class="admin-side-toggle">
@@ -35,12 +35,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<ul class="layui-nav admin-header-item">
 						<li class="layui-nav-item">
 							<a href="javascript:;" class="admin-header-user">
-								<img src="images/0.jpg" />
+								<img src="images/alex.jpg" />
 								<span><%=((Employee)session.getAttribute("employee")).getEname() %></span>
 							</a>
 							<dl class="layui-nav-child">
 								<dd>
-									<a href="javascript:;"><i class="fa fa-user-circle" aria-hidden="true"></i>个人信息</a>
+									<a href="javascript:onclick()" ><i class="fa fa-user-circle" aria-hidden="true"></i>个人信息</a>
 								</dd>
 								<dd>
 									<a href="javascript:;"><i class="fa fa-gear" aria-hidden="true"></i>设置</a>
@@ -130,5 +130,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<%} %>
 		</div>
+			<script>
+			var myInfo={
+		"title": "查看个人信息",
+		"icon": "&#xe649;",
+		"href": "myInfo.jsp"}
+         function onclick(){
+            tab.tabAdd(myInfo)
+        }
+			</script>
 	</body>
 </html>

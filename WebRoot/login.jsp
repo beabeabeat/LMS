@@ -36,9 +36,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div >
 						<div class="beg-pull-left">
-							<!--  <button class="layui-btn layui-btn-primary">
-                            <i class="layui-icon"></i> 登录
-                        </button>-->
                         <input value="登陆" type="submit" class="layui-btn layui-btn-primary">
 						</div>
 						<div class="beg-clear"></div>

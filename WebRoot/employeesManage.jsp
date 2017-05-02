@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<legend>员工操作</legend>
 			</fieldset>
 		<div class="layui-inline"><a href="showEmployeeListAction.do" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-warm">
-			<i class="layui-icon">&#xe612;</i>查看/删除员工
+			<i class="layui-icon">&#xe612;</i>查看/修改/删除员工
 		 </a></div>
 		<div class="layui-inline"><a href="addEmployee.jsp" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-danger">
 			<i class="layui-icon">&#xe608;</i>新增员工

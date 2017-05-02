@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.po">
+	<class name="Cargo" table="t_cargo" lazy="false">
+		<id name="cid" column="cid">
+			<generator class="native"></generator>            
+        </id>	
+       <property name="cname"></property>
+       <property name="type"></property>
+       <property name="unit"></property>
+       <property name="count"></property>
+       <property name="value"></property>
+       <property name="insurance"></property>        
+	</class>
+</hibernate-mapping>
+
+
+
+

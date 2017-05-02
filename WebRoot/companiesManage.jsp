@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<fieldset class="layui-elem-field layui-field-title">
 				<legend>公司操作</legend>
 			</fieldset>
-		<div class="layui-inline"><a href="" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-danger">
+		<div class="layui-inline"><a href="showCompanyListAction.do" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-danger">
 			<i class="layui-icon">&#xe612;</i>查看/删除公司
 		 </a></div>
 		<div class="layui-inline"><a href="" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-warm">

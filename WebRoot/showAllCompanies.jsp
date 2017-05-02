@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@page import="com.po.Employee"%>
+<%@page import="com.po.Company"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -35,8 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <body>
 		<div class="admin-main">
 			<blockquote class="layui-elem-quote">
-			<div class="layui-inline"><a href="employeesManage.jsp" class="layui-btn  ">
-			<i class="layui-icon">&#xe603;</i>返回员工管理页
+			<div class="layui-inline"><a href="companiesManage.jsp" class="layui-btn  ">
+			<i class="layui-icon">&#xe603;</i>返回公司管理页
 		    </a></div>	
 			</blockquote>		
 			<fieldset class="layui-elem-field">
@@ -45,18 +45,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<table class="site-table table-hover">
 						<thead>
 							<tr>
-								<th>ID</th>
-								<th>登录姓名</th>
-								<th>真实姓名</th>
-								<th>登陆密码</th>
-								<th>手机号码</th>
-								<th>所属公司</th>
-								<th>所属部门</th>
-								<th>角色ID</th>
+								<th>公司ID</th>
+								<th>公司名称</th>
+								<th>负责人</th>
+								<th>负责人电话</th>
+								<th>公司电话</th>
+								<th>公司地址</th>
+								<th>公司区域</th>
 								<th>操作</th>
 							</tr>
 						</thead>
-		<%List<Employee> list=(List<Employee>)session.getAttribute("employeeList");
+		<%List<Company> list=(List<Company>)session.getAttribute("companyList");
 		int pages = 1;
 		String mypage = request.getParameter("page");
   	    if(mypage != null){
@@ -73,20 +72,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	        pageCount = pageCount + 1;}%>  				
 						<tbody>	
 						<%for(int i = startNum;i < endNum;i++){
-                         Employee e = list.get(i);%>
+                         Company c = list.get(i);%>
                         <tr>
-                            <td><%=e.getEid() %></td>
-                            <td><%=e.getEname() %></td>
-                            <td><%=e.getRealName() %></td>
-                            <td><%=e.getPassword() %></td>
-                            <td><%=e.getPhoneNumber() %></td>
-                            <td><%=e.getCompany() %></td>
-                            <td><%=e.getDepartment() %></td>
-                            <td><%=e.getRoleID() %></td>
+                            <td><%=c.getCid() %></td>
+                            <td><%=c.getCname() %></td>
+                            <td><%=c.getHeader() %></td>
+                            <td><%=c.getHeaderPhone() %></td>
+                            <td><%=c.getCompanyPhone() %></td>
+                            <td><%=c.getProvince()+c.getCity()+c.getCounty()+c.getStreet() %></td>
+                            <td><%=c.getZone()%></td>
                             <td>
 									<a href="javascript:;" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
-									<a href="updateEmployeeRedirectAction?eid=<%=e.getEid()%>" class="layui-btn layui-btn-mini   layui-btn-mini">修改</a>
-									<a href="deleteEmployeeAction?eid=<%=e.getEid() %>" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+									<a href="javascript:;" class="layui-btn layui-btn-mini   layui-btn-mini">编辑</a>
+									<a href="deleteEmployeeAction?eid=<%=c.getCid() %>" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
 								</td>                       
                         </tr><%} %>														
 						</tbody>						
@@ -95,10 +93,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</fieldset>
 			<center><div class="admin-table-page" >   
 			<%if(pages != 1){%>                
-                    <p class="layui-btn layui-btn-small" ><a href='showAllEmployees.jsp?page=<%= (pages-1)%>'>上一页</a></p>
+                    <p class="layui-btn layui-btn-small" ><a href='showAllCompanies.jsp?page=<%= (pages-1)%>'>上一页</a></p>
                     <%}
                     if(pages != pageCount){%>                  
-                    <p class="layui-btn layui-btn-small" ><a href='showAllEmployees.jsp?page=<%= (pages+1)%>'>下一页</a></p>  
+                    <p class="layui-btn layui-btn-small" ><a href='showAllCompanies.jsp?page=<%= (pages+1)%>'>下一页</a></p>  
                     <%}%>                 
 				</div></center>
 			</div>

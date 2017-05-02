@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.po">
+	<class name="Ysyf" table="t_ysyf" lazy="false">
+		<id name="yid" column="yid">
+			<generator class="native"></generator>            
+        </id>	
+       <property name="start"></property>
+       <property name="destination"></property>
+       <property name="cubic"></property>
+       <property name="ton"></property>
+       <property name="time"></property>  
+	</class>
+</hibernate-mapping>
+
+
+
+

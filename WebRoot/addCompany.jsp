@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>添加员工</title>
+    <title>添加公司</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 
@@ -25,14 +25,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     		<div style="margin: 15px;">
 			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-				<legend>添加员工</legend>
+				<legend>添加公司</legend>
 			</fieldset>
 
 			<form class="layui-form" action="addEmployeeAction">
 				<div class="layui-form-item">
-					<label class="layui-form-label">员工姓名</label>
+					<label class="layui-form-label">公司名称</label>
 					<div class="layui-input-block">
-						<input type="text" name="ename"  placeholder="请输入员工姓名" class="layui-input">
+						<input type="text" name="ename"  placeholder="请输入公司名称" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">

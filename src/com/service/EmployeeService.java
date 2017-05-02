@@ -12,6 +12,12 @@ public class EmployeeService {
 		return employeeDao.getEmployee(eid);
 		
 	}
+	public void deleteEmployee(int eid){
+		employeeDao.deleteEmployeeById(eid);
+	}
+	public void updateEmployee(int id,String ename,String realName,String password,String phoneNumber,String company,String department,int eState,int roleID){
+		employeeDao.updateEmployee(id,ename, realName, password, phoneNumber, company, department, eState, roleID);
+	}
     public void addEmployee(Employee employee){
     	employeeDao.addEmployee(employee);
     }

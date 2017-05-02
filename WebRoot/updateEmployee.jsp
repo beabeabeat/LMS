@@ -1,3 +1,6 @@
+<%@page import="com.service.EmployeeService"%>
+<%@page import="com.po.Employee"%>
+<%@page import="com.po.Role"%>
 <%@page import="com.po.Company"%>
 <%@page import="com.po.Department"%>
 <%@page import="com.service.DepartmentService"%>
@@ -12,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>添加员工</title>
+    <title>修改员工</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 
@@ -23,34 +26,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <%Employee employee=(Employee)session.getAttribute("updateEmployee");%>
     		<div style="margin: 15px;">
 			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-				<legend>添加员工</legend>
+				<legend>修改员工</legend>
 			</fieldset>
 
-			<form class="layui-form" action="addEmployeeAction">
+			<form class="layui-form" action="updateEmployeeAction">
+			<div class="layui-form-item">
+					<label class="layui-form-label">员工ID</label>
+					<div class="layui-input-block">
+						<p class="layui-input"><%=employee.getEid()%></p>
+						<input type="hidden" name="id" value=<%=employee.getEid()%>>
+					</div>
+				</div>
+				
 				<div class="layui-form-item">
 					<label class="layui-form-label">员工姓名</label>
 					<div class="layui-input-block">
-						<input type="text" name="ename"  placeholder="请输入员工姓名" class="layui-input">
+						<input type="text" name="ename"  value=<%=employee.getPassword()%> class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">员工密码</label>
 					<div class="layui-input-block">
-						<input type="text" name="password"  placeholder="请输入员工密码" class="layui-input">
+						<input type="text" name="password"  value=<%=employee.getPassword() %> class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">真实姓名</label>
 					<div class="layui-input-block">
-						<input type="text" name="realName"  placeholder="请输入真实姓名" class="layui-input">
+						<input type="text" name="realName"  value=<%=employee.getRealName() %> class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">手机号码</label>
 					<div class="layui-input-block">
-						<input type="text" name="phoneNumber"  placeholder="请输入手机号码" class="layui-input">
+						<input type="text" name="phoneNumber"  value=<%=employee.getPhoneNumber()%> class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
@@ -83,13 +95,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="layui-input-inline">
 						<select name="roleID">
 							<option value="">--请选择所属角色--</option>
-							<option value="1001">收货员</option>
-							<option value="1002">票务员</option>
-							<option value="1003">配送员</option>
-							<option value="1004">财务员</option>
-							<option value="1005">业务员</option>
-							<option value="1006">维护员</option>
-							<option value="1007">经理</option>
+							<% List<Role> listRole=(List<Role>)session.getAttribute("allRole");
+						for(Role r:listRole){%>
+							 <option value="<%=r.getRid()%>"><%=r.getRname() %></option>
+						<%
+						}
+					    %>
 						</select>
 					</div>
 				</div>
@@ -109,7 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="layui-form-item">
 					<div class="layui-input-block">
-						<button type="submit" class="layui-btn">立即添加</button>
+						<button type="submit" class="layui-btn">立即修改</button>
 						<button type="reset" class="layui-btn">重置</button>
                         <input value="返回员工管理页" type="button" onclick="javascript:window.location.href='employeesManage.jsp'" class="layui-btn layui-btn-normal layui-btn-primary layui-btn-warm">
 					</div>

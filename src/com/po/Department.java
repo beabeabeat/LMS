@@ -1,6 +1,8 @@
 package com.po;
 
-public class Department {
+import java.io.Serializable;
+
+public class Department implements Serializable{
 	private int did;
 	private String dname;
 	public int getDid() {

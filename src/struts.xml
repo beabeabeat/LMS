@@ -23,6 +23,10 @@
 	        <result>showAllEmployees.jsp</result>		
 			<result name="failed">failed.jsp</result>
 	    </action>
+	    <action name="showCompanyListAction" class="showCompanyListAction" method="ShowCompanyList">
+	        <result>showAllCompanies.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
 	    <action name="queryEmployeesById" class="queryEmployeesAction" method="queryEmployeesById">
 	        <result>queryEmployees.jsp</result>		
 			<result name="failed">failed.jsp</result>
@@ -39,6 +43,19 @@
 	        <result>addEmployeeSuccess.jsp</result>		
 			<result name="failed">failed.jsp</result>
 	    </action>
+	    <action name="deleteEmployeeAction" class="deleteEmployeeAction" method="deleteEmployee">
+	        <result>deleteEmployeeSuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="updateEmployeeRedirectAction" class="updateEmployeeRedirectAction" method="updateRedirectEmployee">
+	        <result>updateEmployee.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="updateEmployeeAction" class="updateEmployeeAction" method="updateEmployee">
+	        <result>updateEmployeeSuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    
        
     </package>
 

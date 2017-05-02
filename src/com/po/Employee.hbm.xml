@@ -15,7 +15,8 @@
        <property name="company"></property>
        <property name="department"></property>    
        <property name="roleID"></property>  
-       <property name="eState"></property>   
+       <property name="eState"></property>
+       <property name="regTime"></property>    
 	</class>
 </hibernate-mapping>
 

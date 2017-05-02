@@ -1,6 +1,8 @@
 package com.po;
 
-public class Company {
+import java.io.Serializable;
+
+public class Company implements Serializable{
 	private int cid;
 	private String cname;
 	private String header;
@@ -11,6 +13,23 @@ public class Company {
 	private String county;
 	private String street;
 	private String zone;
+	
+	public Company(){
+		super();
+	}
+	public Company(String cname, String header, String headerPhone, String companyPhone, String province, String city,
+			String county, String street, String zone) {
+		super();
+		this.cname = cname;
+		this.header = header;
+		this.headerPhone = headerPhone;
+		this.companyPhone = companyPhone;
+		this.province = province;
+		this.city = city;
+		this.county = county;
+		this.street = street;
+		this.zone = zone;
+	}
 	public int getCid() {
 		return cid;
 	}

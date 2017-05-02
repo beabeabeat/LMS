@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.po">
+	<class name="Consignee" table="t_consignee" lazy="false">
+		<id name="cid" column="cid">
+			<generator class="native"></generator>            
+        </id>	
+       <property name="enterprise"></property>
+       <property name="consignee"></property>
+       <property name="phone"></property>
+       <property name="address"></property>   
+	</class>
+</hibernate-mapping>
+
+
+
+

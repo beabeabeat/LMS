@@ -53,6 +53,9 @@
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="get*"  propagation="REQUIRES_NEW" read-only="true"/>
+			<tx:method name="delete*" propagation="REQUIRED"/>
+			<tx:method name="update*" propagation="REQUIRED"/>
+			<tx:method name="add*" propagation="REQUIRED"/>
 		</tx:attributes>
 	</tx:advice>
 
@@ -64,11 +67,33 @@
 	</aop:config>
 	
 	<bean id="employee" class="com.po.Employee"></bean>
+	<bean id="company" class="com.po.Company"></bean>
+	<bean id="department" class="com.po.Department"></bean>
 	<bean id="employeeDao" class="com.dao.EmployeeDao">
   	    <property name="sessionFactory" ref="mySessionFactory"></property>
     </bean>	
+    <bean id="companyDao" class="com.dao.CompanyDao">
+  	    <property name="sessionFactory" ref="mySessionFactory"></property>
+    </bean>
+    <bean id="departmentDao" class="com.dao.DepartmentDao">
+  	    <property name="sessionFactory" ref="mySessionFactory"></property>
+    </bean>
+    <bean id="roleDao" class="com.dao.RoleDao">
+  	    <property name="sessionFactory" ref="mySessionFactory"></property>
+    </bean>
     <bean id="employeeService" class="com.service.EmployeeService">
   	    <property name="employeeDao" ref="employeeDao"></property>
+    </bean>
+    <bean id="companyService" class="com.service.CompanyService">
+  	    <property name="companyDao" ref="companyDao"></property>
+    </bean>
+    <bean id="departmentService" class="com.service.DepartmentService">
+  	    <property name="departmentDao" ref="departmentDao"></property>
+  	    
+    </bean>	
+    <bean id="roleService" class="com.service.RoleService">
+  	    <property name="roleDao" ref="roleDao"></property>
+  	    
     </bean>	
     <bean id="validateLoginService" class="com.service.ValidateLoginService">
   	    <property name="employeeService" ref="employeeService"></property>
@@ -77,6 +102,9 @@
 	<bean id="validateLoginAction" class="com.action.ValidateLoginAction" scope="prototype">
 		<property name="validateLoginService" ref="validateLoginService"></property>
 		<property name="employeeService" ref="employeeService"></property>
+		<property name="departmentService" ref="departmentService"></property>
+		<property name="companyService" ref="companyService"></property>
+		<property name="roleService" ref="roleService"></property>
 	</bean>
 	<bean id="logOutAction" class="com.action.LogOutAction" scope="prototype">
 	    
@@ -84,12 +112,25 @@
 	<bean id="showEmployeeListAction" class="com.action.ShowEmoloyeeListAction" scope="prototype">
 	    <property name="employeeService" ref="employeeService"></property>
 	</bean>
+	<bean id="showCompanyListAction" class="com.action.ShowCompanyListAction" scope="prototype">
+	    <property name="companyService" ref="companyService"></property>
+	</bean>
 	<bean id="queryEmployeesAction" class="com.action.QueryEmployeeAction" scope="prototype">
 	    <property name="employeeService" ref="employeeService"></property>
 	</bean>
 	<bean id="addEmployeeAction" class="com.action.AddEmployeeAction" scope="prototype">
 	    <property name="employeeService" ref="employeeService"></property>
 	</bean>
+	<bean id="deleteEmployeeAction" class="com.action.DeleteEmployeeAction" scope="prototype">
+	    <property name="employeeService" ref="employeeService"></property>
+	</bean>
+	<bean id="updateEmployeeRedirectAction" class="com.action.UpdateEmployeeRedirectAction" scope="prototype">
+	    <property name="employeeService" ref="employeeService"></property>
+	</bean>
+	<bean id="updateEmployeeAction" class="com.action.UpdateEmployeeAction" scope="prototype">
+	    <property name="employeeService" ref="employeeService"></property>
+	</bean>
+	
 	
 	
 </beans>

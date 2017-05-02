@@ -1,6 +1,8 @@
 package com.po;
 
-public class Role {
+import java.io.Serializable;
+
+public class Role implements Serializable{
 	private int rid;
 	private String rname;
 	//х╗оч

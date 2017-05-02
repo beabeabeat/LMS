@@ -11,6 +11,30 @@ import com.po.Employee;
 
 public class EmployeeDao {
 	private SessionFactory sessionFactory;
+	public void deleteEmployeeById(int id){//Âß¼­É¾³ý£¬ÉèÖÃ×´Ì¬ÎªÀëÖ°
+	    Session session=sessionFactory.openSession();
+	    session.beginTransaction();
+	    Employee employee=getEmployee(id);
+	    employee.seteState(0);
+	    session.update(employee);
+	    session.getTransaction().commit();
+	     
+	}
+	public void updateEmployee(int id,String ename,String realName,String password,String phoneNumber,String company,String department,int eState,int roleID){
+	    Session session=sessionFactory.openSession();
+	    session.beginTransaction();
+	    Employee employee=getEmployee(id);
+	    employee.setEname(ename);
+	    employee.setRealName(realName);
+	    employee.setPassword(password);
+	    employee.setPhoneNumber(phoneNumber);
+	    employee.setCompany(company);
+	    employee.setDepartment(department);
+	    employee.setRoleID(roleID);
+	    employee.seteState(eState);
+	    session.update(employee);
+	    session.getTransaction().commit(); 
+	}
 	public Employee getEmployee(int eid){
 		Session session=sessionFactory.openSession();
 		Employee employee=(Employee)session.get(Employee.class,eid);
@@ -19,7 +43,9 @@ public class EmployeeDao {
 	
 	public void addEmployee(Employee employee){
 		Session session=sessionFactory.openSession();
+		session.beginTransaction();
 		session.save(employee);
+		session.getTransaction().commit();
 	}
 	public List<Employee> queryEmployeesByID(int id){
 		Session session=sessionFactory.openSession();
@@ -43,7 +69,7 @@ public class EmployeeDao {
 	}
 	public List<Employee> getAllEmployees(){
 		Session session=sessionFactory.openSession();
-		List<Employee> list=session.createQuery("from Employee").list();
+		List<Employee> list=session.createQuery("from Employee where eState<>0").list();
 		return list;
 	}
 	

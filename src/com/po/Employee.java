@@ -10,14 +10,30 @@ public class Employee implements Serializable{
 	private String phoneNumber;
 	private String company;
 	private String department;
-	private int eState; 
+	private int eState; //0代表离职，1代表在职，2代表请假
 	private int roleID;
+	private String regTime;
 	
 	
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Employee(int eid, String ename, String realName, String password, String phoneNumber, String company,
+			String department, int eState, int roleID) {
+		super();
+		this.eid = eid;
+		this.ename = ename;
+		this.realName = realName;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
+		this.company = company;
+		this.department = department;
+		this.eState = eState;
+		this.roleID = roleID;
+	}
+
 	public Employee(String ename, String realName, String password, String phoneNumber, String company,
 			String department, int eState, int roleID) {
 		super();
@@ -83,6 +99,12 @@ public class Employee implements Serializable{
 	}
 	public void seteState(int eState) {
 		this.eState = eState;
+	}
+	public String getRegTime() {
+		return regTime;
+	}
+	public void setRegTime(String regTime) {
+		this.regTime = regTime;
 	}
 	
 	

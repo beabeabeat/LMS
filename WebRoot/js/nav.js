@@ -9,7 +9,7 @@ var navs = [{
 	}, {
 		"title": "公司管理",
 		"icon": "&#xe63c;",
-		"href": "companysManage.jsp"
+		"href": "companiesManage.jsp"
 	}, {
 		"title": "部门管理",
 		"icon": "&#xe63c;",
