@@ -33,10 +33,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<fieldset class="layui-elem-field layui-field-title">
 				<legend>部门操作</legend>
 			</fieldset>
-		<div class="layui-inline"><a href="" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-warm">
-			<i class="layui-icon">&#xe612;</i>查看/删除部门
+		<div class="layui-inline"><a href="showDepartmentListAction.do" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-warm">
+			<i class="layui-icon">&#xe612;</i>查看/修改/删除 部门
 		 </a></div>
-		<div class="layui-inline"><a href="" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-danger">
+		<div class="layui-inline"><a href="addDepartment.jsp" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-danger">
 			<i class="layui-icon">&#xe608;</i>新增部门
 		 </a></div>	 
 		 </blockquote>
@@ -45,8 +45,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<legend>部门查询</legend>
 			</fieldset>
 		<div class="layui-inline">			
-						<center><form action="" method="post">
-						<input type="text" name="cname" id="eid" placeholder="请输入部门名称"  class="layui-input" />
+						<center><form action="queryDepartmentsByName.do" method="post">
+						<div class="layui-inline"><input type="text" name="dname" id="eid" placeholder="请输入部门名称"  class="layui-input" /></div>
                         <input type="submit" value="根据部门名称查询" class="layui-btn  layui-btn-normal layui-btn-primary layui-btn-radius" />
                         </form></center></div>                     	
 			</blockquote>

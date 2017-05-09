@@ -34,9 +34,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<legend>公司操作</legend>
 			</fieldset>
 		<div class="layui-inline"><a href="showCompanyListAction.do" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-danger">
-			<i class="layui-icon">&#xe612;</i>查看/删除公司
+			<i class="layui-icon">&#xe612;</i>查看/修改/删除 公司
 		 </a></div>
-		<div class="layui-inline"><a href="" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-warm">
+		<div class="layui-inline"><a href="addCompany.jsp" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-warm">
 			<i class="layui-icon">&#xe608;</i>新增公司
 		 </a></div>	 
 		 </blockquote>
@@ -45,15 +45,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<legend>公司查询</legend>
 			</fieldset>
 		<div class="layui-inline">			
-						<center><form action="" method="post">
-						<input type="text" name="cname" id="eid" placeholder="请输入公司名称"  class="layui-input" />
+						<center><form action="queryCompaniesByName" method="post">
+						<div class="layui-inline"><input type="text" name="cname" id="eid" placeholder="请输入公司名称"  class="layui-input" /></div>
                         <input type="submit" value="根据公司名称查询" class="layui-btn  layui-btn-normal layui-btn-primary layui-btn-radius" />
-                        </form></center></div>
+                        </form></center></div><br><br>
+                        
 		    				
 		<div class="layui-inline">			
-						<center><form action="" method="post">
-						<input type="text" name="address" placeholder="请输入公司地址"  class="layui-input" />
-                        <input type="submit" value="根据公司地址" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-warm"/>
+						<center><form action="queryCompaniesByAddress" method="post">
+						<div class="layui-inline"><input type="text" name="province" placeholder="请输入公司省份"  class="layui-input" /></div>
+						<div class="layui-inline"><input type="text" name="city" placeholder="请输入公司城市"  class="layui-input" /></div>
+						<div class="layui-inline"><input type="text" name="county" placeholder="请输入公司区县"  class="layui-input" /></div>
+						<div class="layui-inline"><input type="text" name="street" placeholder="请输入公司街道"  class="layui-input" /></div>
+                        <input type="submit" value="根据公司地址查询" class="layui-btn layui-btn-primary layui-btn-radius layui-btn-warm"/>
                         </form></center></div>	
                         	
 			</blockquote>

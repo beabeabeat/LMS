@@ -1,21 +1,16 @@
 package com.action;
 
-import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.ServletActionContext;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.po.Employee;
 import com.service.EmployeeService;
 
 public class UpdateEmployeeRedirectAction extends ActionSupport {
-	EmployeeService employeeService;
+	public Employee e;
+	public EmployeeService employeeService;
 	private int eid;
 	
 	public String updateRedirectEmployee(){
-		Employee employee=employeeService.getEmployee(eid);
-		HttpSession session=ServletActionContext.getRequest().getSession();
-		session.setAttribute("updateEmployee", employee);
+		e=employeeService.getEmployee(eid);
 		return "success";
 	}
 
@@ -34,6 +29,14 @@ public class UpdateEmployeeRedirectAction extends ActionSupport {
 
 	public void setEmployeeService(EmployeeService employeeService) {
 		this.employeeService = employeeService;
+	}
+
+	public Employee getE() {
+		return e;
+	}
+
+	public void setE(Employee e) {
+		this.e = e;
 	}
 
 }

@@ -10,6 +10,21 @@ public class DepartmentService {
 	public List<Department> getAllDepartment(){
 		return departmentDao.getAllDepartment();
 	}
+	public Department getDepartment(int did){
+		return departmentDao.getDepartment(did);
+	}
+	public List<Department> queryDepartmentByName(String dname){
+		return departmentDao.queryDepartmentByName(dname);
+	}
+	public void deleteDepartment(int did){
+		departmentDao.deleteCompany(did);
+	}
+	public void updateDepartment(Department department){
+		departmentDao.updateDepartment(department);
+	}
+	public void addDepartment(Department department){
+		departmentDao.addDepartment(department);
+	}
 	public DepartmentDao getDepartmentDao() {
 		return departmentDao;
 	}

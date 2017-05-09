@@ -33,6 +33,24 @@ public class Employee implements Serializable{
 		this.eState = eState;
 		this.roleID = roleID;
 	}
+	
+
+
+
+	public Employee(int eid, String ename, String realName, String password, String phoneNumber, String company,
+			String department, int eState, int roleID, String regTime) {
+		super();
+		this.eid = eid;
+		this.ename = ename;
+		this.realName = realName;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
+		this.company = company;
+		this.department = department;
+		this.eState = eState;
+		this.roleID = roleID;
+		this.regTime = regTime;
+	}
 
 	public Employee(String ename, String realName, String password, String phoneNumber, String company,
 			String department, int eState, int roleID) {

@@ -53,9 +53,6 @@
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="get*"  propagation="REQUIRES_NEW" read-only="true"/>
-			<tx:method name="delete*" propagation="REQUIRED"/>
-			<tx:method name="update*" propagation="REQUIRED"/>
-			<tx:method name="add*" propagation="REQUIRED"/>
 		</tx:attributes>
 	</tx:advice>
 
@@ -97,6 +94,7 @@
     </bean>	
     <bean id="validateLoginService" class="com.service.ValidateLoginService">
   	    <property name="employeeService" ref="employeeService"></property>
+  	    <property name="roleService" ref="roleService"></property>
     </bean>
 	
 	<bean id="validateLoginAction" class="com.action.ValidateLoginAction" scope="prototype">
@@ -115,8 +113,14 @@
 	<bean id="showCompanyListAction" class="com.action.ShowCompanyListAction" scope="prototype">
 	    <property name="companyService" ref="companyService"></property>
 	</bean>
+	<bean id="showDepartmentListAction" class="com.action.ShowDepartmentListAction" scope="prototype">
+	    <property name="departmentService" ref="departmentService"></property>
+	</bean>
 	<bean id="queryEmployeesAction" class="com.action.QueryEmployeeAction" scope="prototype">
 	    <property name="employeeService" ref="employeeService"></property>
+	</bean>
+	<bean id="queryCompaniesAction" class="com.action.QueryCompanyAction" scope="prototype">
+	    <property name="companyService" ref="companyService"></property>
 	</bean>
 	<bean id="addEmployeeAction" class="com.action.AddEmployeeAction" scope="prototype">
 	    <property name="employeeService" ref="employeeService"></property>
@@ -129,6 +133,37 @@
 	</bean>
 	<bean id="updateEmployeeAction" class="com.action.UpdateEmployeeAction" scope="prototype">
 	    <property name="employeeService" ref="employeeService"></property>
+	</bean>
+	<bean id="addCompanyAction" class="com.action.AddCompanyAction" scope="prototype">
+	    <property name="companyService" ref="companyService"></property>
+	</bean>
+	<bean id="updateCompanyRedirectAction" class="com.action.UpdateCompanyRedirectAction" scope="prototype">
+	    <property name="companyService" ref="companyService"></property>
+	</bean>
+	<bean id="updateCompanyAction" class="com.action.UpdateCompanyAction" scope="prototype">
+	    <property name="companyService" ref="companyService"></property>
+	</bean>
+	
+	<bean id="deleteCompanyAction" class="com.action.DeleteCompanyAction" scope="prototype">
+	    <property name="companyService" ref="companyService"></property>
+	</bean>
+	
+	<bean id="addDepartmentAction" class="com.action.AddDepartmentAction" scope="prototype">
+	    <property name="departmentService" ref="departmentService"></property>
+	</bean>
+	
+	<bean id="updateDepartmentRedirectAction" class="com.action.UpdateDepartmentRedirectAction" scope="prototype">
+	    <property name="departmentService" ref="departmentService"></property>
+	</bean>
+	<bean id="updateDepartmentAction" class="com.action.UpdateDepartmentAction" scope="prototype">
+	    <property name="departmentService" ref="departmentService"></property>
+	</bean>
+	
+	<bean id="deleteDepartmentAction" class="com.action.DeleteDepartmentAction" scope="prototype">
+	    <property name="departmentService" ref="departmentService"></property>
+	</bean>
+	<bean id="queryDepartmentsAction" class="com.action.QueryDepartmentAction" scope="prototype">
+	    <property name="departmentService" ref="departmentService"></property>
 	</bean>
 	
 	

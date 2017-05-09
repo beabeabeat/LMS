@@ -12,8 +12,13 @@ public class RoleDao {
 	public List<Role> getAllRoles(){
 		Session session=sessionFactory.openSession();
 		List<Role> list=session.createQuery("from Role").list();
-		return list;
-		
+		session.close();
+		return list;	
+	}
+	public String queryNameById(int rid){
+		Session session=sessionFactory.openSession();
+		String rname=session.createQuery("select rname from Role where rid=?").setInteger(0,rid).list().toString();
+		return rname;
 	}
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

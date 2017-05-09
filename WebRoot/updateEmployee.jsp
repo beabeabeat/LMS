@@ -5,6 +5,7 @@
 <%@page import="com.po.Department"%>
 <%@page import="com.service.DepartmentService"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -26,43 +27,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <%Employee employee=(Employee)session.getAttribute("updateEmployee");%>
+ 
     		<div style="margin: 15px;">
 			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
 				<legend>修改员工</legend>
 			</fieldset>
 
-			<form class="layui-form" action="updateEmployeeAction">
+			<form class="layui-form" action="updateEmployeeAction.do">
 			<div class="layui-form-item">
 					<label class="layui-form-label">员工ID</label>
 					<div class="layui-input-block">
-						<p class="layui-input"><%=employee.getEid()%></p>
-						<input type="hidden" name="id" value=<%=employee.getEid()%>>
+
+						<p class="layui-input" >${e.eid}</p>
+						<input type="hidden" name="id" value='${e.eid}' >
+						<input type="hidden" name="regTime" value='${e.regTime}' >
 					</div>
 				</div>
 				
 				<div class="layui-form-item">
 					<label class="layui-form-label">员工姓名</label>
 					<div class="layui-input-block">
-						<input type="text" name="ename"  value=<%=employee.getPassword()%> class="layui-input">
+						<input type="text" name="ename"  value='${e.ename}' class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">员工密码</label>
 					<div class="layui-input-block">
-						<input type="text" name="password"  value=<%=employee.getPassword() %> class="layui-input">
+						<input type="text" name="password"  value='${e.password}' class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">真实姓名</label>
 					<div class="layui-input-block">
-						<input type="text" name="realName"  value=<%=employee.getRealName() %> class="layui-input">
+						<input type="text" name="realName"  value='${e.realName}' class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">手机号码</label>
 					<div class="layui-input-block">
-						<input type="text" name="phoneNumber"  value=<%=employee.getPhoneNumber()%> class="layui-input">
+						<input type="text" name="phoneNumber"  value='${e.phoneNumber}' class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">

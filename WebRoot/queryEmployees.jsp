@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	    if(mypage != null){
   		    pages = Integer.parseInt(mypage);
   	      }
-  	    int pageNum =5;//每页显示条数
+  	    int pageNum =7;//每页显示条数
   	    int startNum = (pages - 1) * pageNum;
   	    int endNum= startNum + pageNum;
   	    if(endNum > list.size()){
@@ -84,9 +84,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <td><%=e.getDepartment() %></td>
                             <td><%=e.getRoleID() %></td>
                             <td>
-									<a href="javascript:;" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
-									<a href="javascript:;" class="layui-btn layui-btn-mini   layui-btn-mini">编辑</a>
-									<a href="javascript:;" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+									<a href="updateEmployeeRedirectAction?eid=<%=e.getEid()%>" class="layui-btn layui-btn-mini   layui-btn-mini">编辑</a>
+									<a href="deleteEmployeeAction?eid=<%=e.getEid() %>" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
 								</td>                       
                         </tr><%} %>														
 						</tbody>						

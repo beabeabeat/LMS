@@ -12,7 +12,7 @@
 
     <package name="default" namespace="/" extends="struts-default">
 		<action name="validateLogin" class="validateLoginAction" method="validateLogin">
-			<result>index.jsp</result>
+			<result type="redirect">index.jsp</result>
 			<result name="failed">failed.jsp</result>
 	    </action>
 	    <action name="logOutAction" class="logOutAction" method="logOut">
@@ -27,6 +27,10 @@
 	        <result>showAllCompanies.jsp</result>		
 			<result name="failed">failed.jsp</result>
 	    </action>
+	    <action name="showDepartmentListAction" class="showDepartmentListAction" method="ShowDepartmentList">
+	        <result>showAllDepartments.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
 	    <action name="queryEmployeesById" class="queryEmployeesAction" method="queryEmployeesById">
 	        <result>queryEmployees.jsp</result>		
 			<result name="failed">failed.jsp</result>
@@ -39,6 +43,17 @@
 	        <result>queryEmployees.jsp</result>		
 			<result name="failed">failed.jsp</result>
 	    </action>
+	    
+	     <action name="queryCompaniesByName" class="queryCompaniesAction" method="queryCompanyByName">
+	        <result>queryCompanies.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="queryCompaniesByAddress" class="queryCompaniesAction" method="queryCompanyByAddress">
+	        <result>queryCompanies.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    
+	    
 	    <action name="addEmployeeAction" class="addEmployeeAction" method="addEmployee">
 	        <result>addEmployeeSuccess.jsp</result>		
 			<result name="failed">failed.jsp</result>
@@ -53,6 +68,44 @@
 	    </action>
 	    <action name="updateEmployeeAction" class="updateEmployeeAction" method="updateEmployee">
 	        <result>updateEmployeeSuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	     <action name="addCompanyAction" class="addCompanyAction" method="addCompany">
+	        <result>addCompanySuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="updateCompanyRedirectAction" class="updateCompanyRedirectAction" method="updateRedirectCompany">
+	        <result>updateCompany.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="updateCompanyAction" class="updateCompanyAction" method="updateCompany">
+	        <result>updateCompanySuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="deleteCompanyAction" class="deleteCompanyAction" method="deleteCompany">
+	        <result>deleteCompanySuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="addDepartmentAction" class="addDepartmentAction" method="addDepartment">
+	        <result>addDepartmentSuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    
+	    <action name="updateDepartmentRedirectAction" class="updateDepartmentRedirectAction" method="updateRedirectDepartment">
+	        <result>updateDepartment.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="updateDepartmentAction" class="updateDepartmentAction" method="updateDepartment">
+	        <result>updateDepartmentSuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="deleteDepartmentAction" class="deleteDepartmentAction" method="deleteDepartment">
+	        <result>deleteDepartmentSuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    
+	    <action name="queryDepartmentsByName" class="queryDepartmentsAction" method="queryDepartmentByName">
+	        <result>queryDepartments.jsp</result>		
 			<result name="failed">failed.jsp</result>
 	    </action>
 	    

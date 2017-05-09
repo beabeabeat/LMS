@@ -1,3 +1,4 @@
+<%@page import="com.po.Role"%>
 <%@page import="com.po.Company"%>
 <%@page import="com.po.Department"%>
 <%@page import="com.service.DepartmentService"%>
@@ -83,13 +84,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="layui-input-inline">
 						<select name="roleID">
 							<option value="">--请选择所属角色--</option>
-							<option value="1001">收货员</option>
-							<option value="1002">票务员</option>
-							<option value="1003">配送员</option>
-							<option value="1004">财务员</option>
-							<option value="1005">业务员</option>
-							<option value="1006">维护员</option>
-							<option value="1007">经理</option>
+							<% List<Role> listRole=(List<Role>)session.getAttribute("allRole");
+						for(Role r:listRole){%>
+						<option value="<%=r.getRid()%>"><%=r.getRname() %></option>
+							<%
+						}
+					    %>
 						</select>
 					</div>
 				</div>
@@ -111,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="layui-input-block">
 						<button type="submit" class="layui-btn">立即添加</button>
 						<button type="reset" class="layui-btn">重置</button>
-                        <input value="返回员工管理页" type="button" onclick="javascript:window.location.href='employeesManage.jsp'" class="layui-btn layui-btn-normal layui-btn-primary layui-btn-warm">
+                        <input value="返回员工管理页" type="button" onclick="javascript:window.location.href='companiesManage.jsp'" class="layui-btn layui-btn-normal layui-btn-primary layui-btn-warm">
 					</div>
 				</div>
 			</form>

@@ -5,6 +5,19 @@ import java.io.Serializable;
 public class Department implements Serializable{
 	private int did;
 	private String dname;
+	
+	public Department() {
+		super();
+	}
+	public Department(int did, String dname) {
+		super();
+		this.did = did;
+		this.dname = dname;
+	}
+	public Department(String dname) {
+		super();
+		this.dname = dname;
+	}
 	public int getDid() {
 		return did;
 	}

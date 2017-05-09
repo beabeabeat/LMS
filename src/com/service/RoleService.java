@@ -10,6 +10,9 @@ public class RoleService {
 	public List<Role> getAllRoles(){
 		return roleDao.getAllRoles();
 	}
+	public String queryNameById(int rid){
+		return roleDao.queryNameById(rid);
+	}
 	public RoleDao getRoleDao() {
 		return roleDao;
 	}

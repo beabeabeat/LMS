@@ -1,5 +1,7 @@
 package com.action;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -17,11 +19,13 @@ public class UpdateEmployeeAction extends ActionSupport {
 	private String department;
 	private int eState; 
 	private int roleID;
+	private String regTime;
 	
 	public String updateEmployee(){
 		id=Integer.parseInt(ServletActionContext.getRequest().getParameter("id").toString());
 		eState=Integer.parseInt(ServletActionContext.getRequest().getParameter("eState").toString());
-		employeeService.updateEmployee(id,ename, realName, password, phoneNumber, company, department, eState, roleID);
+		Employee employee=new Employee(id,ename,realName,password,phoneNumber,company,department,eState,roleID,regTime);
+		employeeService.updateEmployee(employee);
 		return "success";
 	}
 
@@ -99,5 +103,26 @@ public class UpdateEmployeeAction extends ActionSupport {
 	public void setEmployeeService(EmployeeService employeeService) {
 		this.employeeService = employeeService;
 	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getRegTime() {
+		return regTime;
+	}
+
+
+	public void setRegTime(String regTime) {
+		this.regTime = regTime;
+	}
+	
 
 }

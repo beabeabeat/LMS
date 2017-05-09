@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </a></div>	
 			</blockquote>		
 			<fieldset class="layui-elem-field">
-				<legend>查询结果</legend>
+				<legend>公司列表</legend>
 				<div class="layui-field-box">
 					<table class="site-table table-hover">
 						<thead>
@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	    if(mypage != null){
   		    pages = Integer.parseInt(mypage);
   	      }
-  	    int pageNum =5;//每页显示条数
+  	    int pageNum =7;//每页显示条数
   	    int startNum = (pages - 1) * pageNum;
   	    int endNum= startNum + pageNum;
   	    if(endNum > list.size()){
@@ -82,9 +82,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <td><%=c.getProvince()+c.getCity()+c.getCounty()+c.getStreet() %></td>
                             <td><%=c.getZone()%></td>
                             <td>
-									<a href="javascript:;" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
-									<a href="javascript:;" class="layui-btn layui-btn-mini   layui-btn-mini">编辑</a>
-									<a href="deleteEmployeeAction?eid=<%=c.getCid() %>" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+									<a href="updateCompanyRedirectAction?cid=<%=c.getCid()%>" class="layui-btn layui-btn-mini   layui-btn-mini">修改</a>
+									<a href="deleteCompanyAction?cid=<%=c.getCid() %>" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
 								</td>                       
                         </tr><%} %>														
 						</tbody>						

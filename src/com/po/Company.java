@@ -17,6 +17,22 @@ public class Company implements Serializable{
 	public Company(){
 		super();
 	}
+	
+	public Company(int cid, String cname, String header, String headerPhone, String companyPhone, String province,
+			String city, String county, String street, String zone) {
+		super();
+		this.cid = cid;
+		this.cname = cname;
+		this.header = header;
+		this.headerPhone = headerPhone;
+		this.companyPhone = companyPhone;
+		this.province = province;
+		this.city = city;
+		this.county = county;
+		this.street = street;
+		this.zone = zone;
+	}
+
 	public Company(String cname, String header, String headerPhone, String companyPhone, String province, String city,
 			String county, String street, String zone) {
 		super();
