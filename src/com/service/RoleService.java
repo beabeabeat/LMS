@@ -13,6 +13,12 @@ public class RoleService {
 	public String queryNameById(int rid){
 		return roleDao.queryNameById(rid);
 	}
+	public void updateRole(Role role){
+		roleDao.updateRole(role);;
+	}
+	public Role getRoleById(int rid){
+		return roleDao.getRolesById(rid);
+	}
 	public RoleDao getRoleDao() {
 		return roleDao;
 	}

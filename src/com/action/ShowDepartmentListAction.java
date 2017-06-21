@@ -14,7 +14,7 @@ public class ShowDepartmentListAction extends ActionSupport{
 	DepartmentService departmentService;
 	List<Department> list;
 	
-	public String ShowDepartmentList(){
+	public String showDepartmentList(){
 		list=departmentService.getAllDepartment();
 		HttpSession session=ServletActionContext.getRequest().getSession();
 		session.setAttribute("departmentList",list);

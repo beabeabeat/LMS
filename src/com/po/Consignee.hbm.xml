@@ -11,7 +11,10 @@
        <property name="enterprise"></property>
        <property name="consignee"></property>
        <property name="phone"></property>
-       <property name="address"></property>   
+       <property name="province"></property>
+       <property name="city"></property>    
+       <property name="county"></property>  
+       <property name="street"></property>   
 	</class>
 </hibernate-mapping>
 

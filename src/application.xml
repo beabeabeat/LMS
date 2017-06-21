@@ -29,6 +29,10 @@
       <value>/com/po/Company.hbm.xml</value>
       <value>/com/po/Department.hbm.xml</value>
       <value>/com/po/Role.hbm.xml</value>
+      <value>/com/po/Ysyf.hbm.xml</value>
+      <value>/com/po/Cargo.hbm.xml</value>
+      <value>/com/po/Client.hbm.xml</value>
+      <value>/com/po/Consignee.hbm.xml</value>
       </list>
     </property>
     <property name="hibernateProperties">
@@ -66,6 +70,7 @@
 	<bean id="employee" class="com.po.Employee"></bean>
 	<bean id="company" class="com.po.Company"></bean>
 	<bean id="department" class="com.po.Department"></bean>
+	<bean id="ysyf" class="com.po.Ysyf"></bean>
 	<bean id="employeeDao" class="com.dao.EmployeeDao">
   	    <property name="sessionFactory" ref="mySessionFactory"></property>
     </bean>	
@@ -76,6 +81,9 @@
   	    <property name="sessionFactory" ref="mySessionFactory"></property>
     </bean>
     <bean id="roleDao" class="com.dao.RoleDao">
+  	    <property name="sessionFactory" ref="mySessionFactory"></property>
+    </bean>
+    <bean id="ysyfDao" class="com.dao.YsyfDao">
   	    <property name="sessionFactory" ref="mySessionFactory"></property>
     </bean>
     <bean id="employeeService" class="com.service.EmployeeService">
@@ -91,7 +99,11 @@
     <bean id="roleService" class="com.service.RoleService">
   	    <property name="roleDao" ref="roleDao"></property>
   	    
-    </bean>	
+    </bean>
+    <bean id="ysyfService" class="com.service.YsyfService">
+  	    <property name="ysyfDao" ref="ysyfDao"></property>
+  	    
+    </bean>		
     <bean id="validateLoginService" class="com.service.ValidateLoginService">
   	    <property name="employeeService" ref="employeeService"></property>
   	    <property name="roleService" ref="roleService"></property>
@@ -115,6 +127,9 @@
 	</bean>
 	<bean id="showDepartmentListAction" class="com.action.ShowDepartmentListAction" scope="prototype">
 	    <property name="departmentService" ref="departmentService"></property>
+	</bean>
+	<bean id="showYsyfListAction" class="com.action.ShowYsyfListAction" scope="prototype">
+	    <property name="ysyfService" ref="ysyfService"></property>
 	</bean>
 	<bean id="queryEmployeesAction" class="com.action.QueryEmployeeAction" scope="prototype">
 	    <property name="employeeService" ref="employeeService"></property>
@@ -166,6 +181,39 @@
 	    <property name="departmentService" ref="departmentService"></property>
 	</bean>
 	
+	<bean id="addYsyfAction" class="com.action.AddYsyfAction" scope="prototype">
+	    <property name="ysyfService" ref="ysyfService"></property>
+	</bean>
+	<bean id="deleteYsyfAction" class="com.action.DeleteYsyfAction" scope="prototype">
+	    <property name="ysyfService" ref="ysyfService"></property>
+	</bean>
+	
+	<bean id="updateYsyfRedirectAction" class="com.action.UpdateYsyfRedirectAction" scope="prototype">
+	    <property name="ysyfService" ref="ysyfService"></property>
+	</bean>
+	<bean id="updateYsyfAction" class="com.action.UpdateYsyfAction" scope="prototype">
+	    <property name="ysyfService" ref="ysyfService"></property>
+	</bean>
+	
+	<bean id="queryYsyfsAction" class="com.action.QueryYsyfAction" scope="prototype">
+	    <property name="ysyfService" ref="ysyfService"></property>
+	</bean>
+	
+	<bean id="updateEmployeePasswordRedirectAction" class="com.action.UpdateEmployeePasswordRedirectAction" scope="prototype">
+	    <property name="employeeService" ref="employeeService"></property>
+	</bean>
+	
+	<bean id="updateEmployeesPasswordAction" class="com.action.UpdateEmoloyeesPasswordAction" scope="prototype">
+	    <property name="employeeService" ref="employeeService"></property>
+	</bean>
+	
+	<bean id="powerManageAction" class="com.action.PowerManageAction" scope="prototype">
+	    <property name="roleService" ref="roleService"></property>
+	</bean>
+	
+	<bean id="updatePowerAction" class="com.action.UpdatePowerAction" scope="prototype">
+	    <property name="roleService" ref="roleService"></property>
+	</bean>
 	
 	
 </beans>

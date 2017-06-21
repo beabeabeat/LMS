@@ -153,10 +153,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         <div class="row m-0 md-bg-grey-100 p-l-20 p-r-20">
                                             <div class="col-md-6 col-sm-6 col-xs-6 w3layouts-aug">
                                                 <h3>最近订单</h3>
-                                                <p>REPORT</p>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-6 ">
-                                                <h2 class="text-right c-teal f-300 m-t-20">$21,235</h2>
+                                                <h2 class="text-right c-teal f-300 m-t-20">￥21,235</h2>
                                             </div>
                                         </div>
                                         
@@ -165,8 +164,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
-                                                        <th>Name</th>
-                                                        <th>Amount</th>
+                                                        <th>名称</th>
+                                                        <th>金额</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>

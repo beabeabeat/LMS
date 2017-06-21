@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Role implements Serializable{
 	private int rid;
 	private String rname;
-	//х╗оч
+	//х╗О©╫О©╫
 	private String admin;
 	private String receive;
 	private String ticket;
@@ -14,6 +14,30 @@ public class Role implements Serializable{
 	private String business;
 	private String data;
 	private String manager;
+	
+	public Role() {
+		super();
+	}
+	
+	public Role(int rid, String rname, String admin, String receive, String ticket, String delivery, String finance,
+			String business, String data, String manager) {
+		super();
+		this.rid = rid;
+		this.rname = rname;
+		this.admin = admin;
+		this.receive = receive;
+		this.ticket = ticket;
+		this.delivery = delivery;
+		this.finance = finance;
+		this.business = business;
+		this.data = data;
+		this.manager = manager;
+	}
+
+	public Role(int rid) {
+		super();
+		this.rid = rid;
+	}
 	public int getRid() {
 		return rid;
 	}

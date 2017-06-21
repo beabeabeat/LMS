@@ -13,7 +13,7 @@ import com.service.CompanyService;
 public class ShowCompanyListAction extends ActionSupport{
 	CompanyService companyService;
 	List<Company> list;
-	public String ShowCompanyList(){
+	public String showCompanyList(){
 		list=companyService.getAllCompany();
 		HttpSession session=ServletActionContext.getRequest().getSession();
 	    session.setAttribute("companyList",list); 

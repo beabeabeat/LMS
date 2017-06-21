@@ -26,7 +26,13 @@ public class ShowEmoloyeeListAction extends ActionSupport{
 		HttpSession session=ServletActionContext.getRequest().getSession();
 	    session.setAttribute("employeeList",list); 
 	        return "success";
-	       }	
+	       }
+	public String showEmployeePassword(){
+		list=employeeService.showEmployeeList();
+		HttpSession session=ServletActionContext.getRequest().getSession();
+	    session.setAttribute("employeeList",list); 
+	        return "success";
+	       }
     public List<Employee> getList() {
 		return list;
 	   }

@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="layui-input-block">
 						<button type="submit" class="layui-btn">立即修改</button>
 						<button type="reset" class="layui-btn">重置</button>
-                        <input value="返回部门管理页" type="button" onclick="javascript:window.location.href='DepartmentsManage.jsp'" class="layui-btn layui-btn-normal layui-btn-primary layui-btn-warm">
+                        <input value="返回部门管理页" type="button" onclick="javascript:window.location.href='departmentsManage.jsp'" class="layui-btn layui-btn-normal layui-btn-primary layui-btn-warm">
 					</div>
 				</div>
 			</form>

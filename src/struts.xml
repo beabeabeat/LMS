@@ -11,28 +11,44 @@
     <constant name="struts.action.extension" value="action,do,"></constant>
 
     <package name="default" namespace="/" extends="struts-default">
+    
+    <!-- <global-results>	
+         <result name="commonError">/errorPage_i.jsp</result>
+        </global-results>
+            <global-exception-mappings>   
+	          <exception-mapping name="commonError"  
+	                             exception="java.lang.Exception"  
+	                             result="commonError"/>   
+	          </global-exception-mappings>-->
+	          
 		<action name="validateLogin" class="validateLoginAction" method="validateLogin">
 			<result type="redirect">index.jsp</result>
 			<result name="failed">failed.jsp</result>
 	    </action>
 	    <action name="logOutAction" class="logOutAction" method="logOut">
-			<result>login.jsp</result>
+			<result type="redirect">login.jsp</result>
 			<result name="failed">failed.jsp</result>
 	    </action>
 	    <action name="showEmployeeListAction" class="showEmployeeListAction" method="showEmployeeList">
 	        <result>showAllEmployees.jsp</result>		
 			<result name="failed">failed.jsp</result>
 	    </action>
-	    <action name="showCompanyListAction" class="showCompanyListAction" method="ShowCompanyList">
+	    <action name="showCompanyListAction" class="showCompanyListAction" method="showCompanyList">
 	        <result>showAllCompanies.jsp</result>		
 			<result name="failed">failed.jsp</result>
 	    </action>
-	    <action name="showDepartmentListAction" class="showDepartmentListAction" method="ShowDepartmentList">
+	    <action name="showDepartmentListAction" class="showDepartmentListAction" method="showDepartmentList">
 	        <result>showAllDepartments.jsp</result>		
 			<result name="failed">failed.jsp</result>
 	    </action>
+	    <action name="showYsyfListAction" class="showYsyfListAction" method="showYsyfList">
+	        <result>showAllYsyfs.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
 	    <action name="queryEmployeesById" class="queryEmployeesAction" method="queryEmployeesById">
-	        <result>queryEmployees.jsp</result>		
+	        <result>queryEmployees.jsp</result>	
+	       <!-- <exception-mapping result="commonError" exception="java.lang.Exception">
+            </exception-mapping>	-->
 			<result name="failed">failed.jsp</result>
 	    </action>
 	     <action name="queryEmployeesByDepartment" class="queryEmployeesAction" method="queryEmployeesByDepartment">
@@ -108,6 +124,62 @@
 	        <result>queryDepartments.jsp</result>		
 			<result name="failed">failed.jsp</result>
 	    </action>
+	    
+	    <action name="addYsyfAction" class="addYsyfAction" method="addYsyf">
+	        <result>addYsyfSuccess.jsp</result>	        	
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    
+	    <action name="deleteYsyfAction" class="deleteYsyfAction" method="deleteYsyf">
+	        <result>deleteYsyfSuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    
+	     <action name="updateYsyfRedirectAction" class="updateYsyfRedirectAction" method="updateRedirectYsyf">
+	        <result>updateYsyf.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="updateYsyfAction" class="updateYsyfAction" method="updateYsyf">
+	        <result>updateYsyfSuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    
+	    <action name="queryYsyfsByStart" class="queryYsyfsAction" method="queryYsyfByStart">
+	        <result>queryYsyfs.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="queryYsyfsByDestination" class="queryYsyfsAction" method="queryYsyfByDestination">
+	        <result>queryYsyfs.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="queryYsyfsBySD" class="queryYsyfsAction" method="queryYsyfBySD">
+	        <result>queryYsyfs.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	     <action name="showEmployeePassword" class="showEmployeeListAction" method="showEmployeePassword">
+	        <result>showEmployeesPassword.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    
+	    <action name="updateEmployeePasswordRedirectAction" class="updateEmployeePasswordRedirectAction" method="updateRedirectEmployeePassword">
+	        <result>updateEmployeePassword.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="updateEmployeesPasswordAction" class="updateEmployeesPasswordAction" method="updateEmployeePassword">
+	        <result>updateEmployeePasswordSuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    
+	    <action name="powerManageAction" class="powerManageAction" method="powerManage">
+	        <result>powerManage.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    <action name="updatePowerAction" class="updatePowerAction" method="updatePower">
+	        <result>updatePowerSuccess.jsp</result>		
+			<result name="failed">failed.jsp</result>
+	    </action>
+	    
+	    
 	    
        
     </package>

@@ -1,5 +1,5 @@
 <%@page import="com.po.Employee"%>
-<%@page errorPage="errorPage.jsp" %>
+<%@page errorPage="errorpage.jsp"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -8,7 +8,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-	<head>
+<% Employee employee=(Employee)session.getAttribute("employee"); 
+	   if(employee==null){	   
+	   response.sendRedirect("login.jsp");
+	   return;
+	}%>
+     <script type="text/javascript"> 
+          window.onload=function(){ 
+          var info="欢迎您,<%=((Employee)session.getAttribute("employee")).getEname() %>！"; 
+          alert(info); 
+          } 
+     </script>
+	 <head>
 		<meta charset="utf-8">
 		<title>物流管理系统</title>
 		<link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
@@ -16,11 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
 	</head>
 	<body>
-	<% Employee employee=(Employee)session.getAttribute("employee"); 
-	   if(employee==null){
-	   response.sendRedirect("login.jsp");
-	   return;
-	}%>
+	
 		<div class="layui-layout layui-layout-admin">
 			<div class="layui-header header header-demo">
 				<div class="layui-main">
@@ -30,8 +37,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</a>
 						<div class="admin-side-toggle">
 							<i class="fa fa-bars" aria-hidden="true"></i>
-						</div>
+						</div>       
+						
 					</div>
+					
+					<div class="layui-main" style="margin-left: 600;margin-top: -45">
+					<a >
+							<i class="fa fa-volume-up" aria-hidden="true"></i>
+							<span style="font-size:18px;">欢迎使用物流管理系统</span>
+						</a>
+					</div>
+					
+					
+             
 					<ul class="layui-nav admin-header-item">
 						<li class="layui-nav-item">
 							<a href="javascript:;" class="admin-header-user">
@@ -43,10 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<a href="javascript:onclick()" ><i class="fa fa-user-circle" aria-hidden="true"></i>个人信息</a>
 								</dd>
 								<dd>
-									<a href="javascript:;"><i class="fa fa-gear" aria-hidden="true"></i>设置</a>
-								</dd>
-								<dd>
-									<a href="logOutAction.do"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+									<a href="javascript:logout()"><i class="fa fa-sign-out" aria-hidden="true" ></i>注销</a>
 								</dd>
 							</dl>
 						</li>
@@ -73,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="layui-footer footer footer-demo" id="admin-footer">
 				<div class="layui-main">
-					<p>&copy; 2016 Powered by alex
+					<p>&copy; 2017 Powered by alex
 					</p>
 				</div>
 			</div>
@@ -130,14 +145,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<%} %>
 		</div>
-			<script>
-			var myInfo={
+		<script>
+		var myInfo={
 		"title": "查看个人信息",
 		"icon": "&#xe649;",
 		"href": "myInfo.jsp"}
          function onclick(){
             tab.tabAdd(myInfo)
         }
+        function logout(){
+        if(confirm("您确定注销吗,注销后将跳转到登录界面！")){          
+          window.location.href='logOutAction.do';
+          //setTimeout("javascript:location.href='logOutAction.do'", 3000);
+              }else{  
+                return;  
+                } 
+              }  
 			</script>
 	</body>
 </html>

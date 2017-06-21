@@ -1,6 +1,6 @@
 package com.po;
 
-public class Client {
+public class Client implements java.io.Serializable{
 	private int cid;
 	private String cname;
 	private String contact;

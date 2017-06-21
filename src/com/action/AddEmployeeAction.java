@@ -1,5 +1,8 @@
 package com.action;
 
+
+import java.util.Date;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -16,10 +19,14 @@ public class AddEmployeeAction extends ActionSupport{
 	private String department;
 	private int eState; 
 	private int roleID;
+	private String regTime;
 	
 	public String addEmployee(){
 		eState=Integer.parseInt(ServletActionContext.getRequest().getParameter("eState").toString());
-		Employee employee=new Employee(ename, realName, password, phoneNumber, company, department, eState, roleID);
+		//Employee employee=new Employee(ename, realName, password, phoneNumber, company, department, eState, roleID);
+		Date date = new Date();
+		regTime=date.toLocaleString();
+		Employee employee=new Employee(ename, realName, password, phoneNumber, company, department, eState, roleID, regTime);
 		employeeService.addEmployee(employee);
 		return "success";
 	}

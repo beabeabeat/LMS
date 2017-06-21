@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>添加员工</title>
+    <title>添加部门</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 

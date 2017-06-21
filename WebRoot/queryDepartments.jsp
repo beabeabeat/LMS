@@ -36,8 +36,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <body>
 		<div class="admin-main">
 			<blockquote class="layui-elem-quote">
-			<div class="layui-inline"><a href="companiesManage.jsp" class="layui-btn  ">
-			<i class="layui-icon">&#xe603;</i>返回公司管理页
+			<div class="layui-inline"><a href="departmentsManage.jsp" class="layui-btn  ">
+			<i class="layui-icon">&#xe603;</i>返回部门管理页
 		    </a></div>			
 			</blockquote>		
 			<fieldset class="layui-elem-field">

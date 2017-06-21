@@ -1,6 +1,6 @@
 package com.po;
 
-public class Cargo {
+public class Cargo implements java.io.Serializable{
 	private int cid;
 	private String cname;
 	private String type;
